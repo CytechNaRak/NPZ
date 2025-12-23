@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <title>Nutdanai | Portfolio</title>
+  <link rel="icon" type="image/png" href="https://img.sanishtech.com/u/2b63d0627a7f2292a0be4f450b2fe618.png">
+  <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@200;400;600&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary: #00ff88; 
+      --secondary: #00d4ff; 
+      --bg-dark: #0a0c10;
+      --card-bg: rgba(255, 255, 255, 0.03);
+      --border: rgba(0, 255, 136, 0.2);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    body { 
+      background-color: var(--bg-dark); 
+      color: #cfd8dc; 
+      font-family: 'Kanit', sans-serif;
+      line-height: 1.6;
+      background-image: radial-gradient(circle at 2px 2px, rgba(0, 255, 136, 0.05) 1px, transparent 0);
+      background-size: 40px 40px;
+    }
+
+    .container { max-width: 1000px; margin: 0 auto; padding: 50px 20px; }
+
+    /* Profile Header */
+    .hero {
+      background: linear-gradient(145deg, #0d1117, #161b22);
+      padding: 60px 20px;
+      border-radius: 24px;
+      border: 1px solid var(--border);
+      text-align: center;
+      margin-bottom: 30px;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+    }
+
+    .avatar {
+      width: 150px; height: 150px; border-radius: 30px;
+      border: 3px solid var(--primary);
+      margin-bottom: 20px;
+      box-shadow: 0 0 30px rgba(0, 255, 136, 0.2);
+      transform: rotate(-3deg);
+    }
+
+    h1 { font-size: 3rem; color: #fff; text-shadow: 0 0 15px rgba(0, 255, 136, 0.3); }
+    .tagline { font-family: 'Fira Code', monospace; color: var(--secondary); margin-bottom: 10px; }
+
+    /* Bento Grid Layout */
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+
+    .card {
+      background: var(--card-bg);
+      padding: 30px;
+      border-radius: 20px;
+      border: 1px solid rgba(255,255,255,0.05);
+      backdrop-filter: blur(10px);
+      transition: 0.4s;
+    }
+    .card:hover { border-color: var(--primary); transform: translateY(-10px); background: rgba(0, 255, 136, 0.02); }
+
+    h2 { color: var(--primary); margin-bottom: 20px; display: flex; align-items: center; gap: 12px; font-size: 1.5rem; }
+
+    /* Skills & Tags */
+    .tags { display: flex; flex-wrap: wrap; gap: 8px; }
+    .tag {
+      padding: 6px 14px; background: rgba(0, 255, 136, 0.1);
+      border: 1px solid var(--primary); color: var(--primary);
+      border-radius: 8px; font-size: 0.9rem; font-family: 'Fira Code', monospace;
+    }
+    .tag.highlight { background: var(--secondary); border: none; color: #000; font-weight: bold; }
+
+    /* Game List & Project Box */
+    .game-box {
+      background: rgba(255,255,255,0.02);
+      padding: 10px 15px; border-radius: 10px; margin-bottom: 8px;
+      border-left: 3px solid var(--secondary);
+      font-size: 0.95rem;
+    }
+
+    /* Project Specific Styles */
+    .project-card {
+      background: linear-gradient(135deg, rgba(88, 101, 242, 0.1) 0%, rgba(0, 255, 136, 0.05) 100%);
+      border: 1px solid rgba(88, 101, 242, 0.3);
+    }
+
+    .status-badge {
+      display: inline-block;
+      padding: 2px 10px;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      background: #5865F2;
+      color: white;
+      margin-bottom: 10px;
+    }
+
+    .footer {
+      text-align: center; margin-top: 50px; padding: 30px;
+      border-top: 1px solid var(--border); color: #666;
+    }
+
+    /* Discord Section */
+    .discord-links {
+      display: grid;
+      gap: 12px;
+    }
+
+    .discord-card {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      padding: 15px;
+      background: #23272a;
+      border-radius: 12px;
+      text-decoration: none;
+      color: white;
+      transition: 0.3s;
+    }
+
+    .discord-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+    }
+
+    .discord-card .icon {
+      font-size: 24px;
+      background: #5865F2;
+      width: 48px;
+      height: 48px;
+      display: grid;
+      place-items: center;
+      border-radius: 10px;
+    }
+
+    .discord-card.cs { border-left: 5px solid #ffcc00; }
+    .discord-card.nexus { border-left: 5px solid #00d4ff; }
+    .discord-card.royal { border-left: 5px solid #ff4747; }
+
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <header class="hero" data-aos="zoom-in">
+      <img src="https://scontent.futp1-1.fna.fbcdn.net/v/t39.30808-6/582415069_1346882880423310_5905546236590131473_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=a5f93a&_nc_ohc=gAb6NasUzMMQ7kNvwFL5wcx&_nc_oc=Adl6l2hMs4LarxZc7Uek1tN5sHCpOtL0isQdk4T826-VLwl004seHOwfW99B8TguRnKwK_wzV3q0qfvDGNhvamfV&_nc_zt=23&_nc_ht=scontent.futp1-1.fna&_nc_gid=iJtHjZoB7j8Q7nRwI2jNmw&oh=00_AfnzFsuXUdEunzmU5xggJvjYq418Wp_URv2MPCL54_0L5w&oe=694F2D60" class="avatar" alt="Avatar">
+      <h1>ณัฐดนัย ภู่ทอง</h1>
+      <p class="tagline">> คําขวัญ: กุญแจความสําเร็จอยู่ที่ตัวคุณเอง</p>
+      <p style="opacity: 0.7;"><i class="fas fa-school"></i> โรงเรียนสิงห์สมุทร | อายุ 16-17 ปี</p>
+    </header>
+
+    <div class="grid">
+      <section class="card" data-aos="fade-up">
+        <h2><i class="fas fa-terminal"></i> Programming</h2>
+        <div class="tags">
+          <span class="tag highlight">Python</span>
+          <span class="tag highlight">Lua</span>
+          <span class="tag">Go (ศึกษาอยู่)</span>
+          <span class="tag">JavaScript</span>
+          <span class="tag">C# / C++</span>
+          <span class="tag">HTML</span>
+        </div>
+        <p style="margin-top: 15px; font-size: 0.9rem; color: #888;">* เชี่ยวชาญ Python (บอท Discord) และ Lua (Roblox Scripting)</p>
+      </section>
+
+    <section class="card project-card" data-aos="fade-up" data-aos-delay="100">
+
+        <a href="https://discord.com/api/oauth2/authorize?client_id=1040184073668272138&permissions=8&scope=bot%20applications.commands" 
+          target="_blank" style="text-decoration: none; color: inherit; display: block;">
+
+            <span class="status-badge"><i class="fas fa-compact-disc fa-spin"></i> Active Project</span>
+
+            <!-- Image ของบอท -->
+            <img src="https://cdn.discordapp.com/avatars/1040184073668272138/a_524603e082d596177173f7a5ec6d8a80.gif?size=1024" 
+                alt="CytechMusic Bot" 
+                style="width: 150px; height: 150px; border-radius: 20px; border: 2px solid var(--primary); display: block; margin: 15px auto; box-shadow: 0 0 20px rgba(0,255,136,0.3);">
+
+            <h2><i class="fas fa-music"></i> CytechMusic</h2>
+
+            <p style="font-size: 0.95rem;">บอทเพลงคุณภาพสูง พัฒนาด้วย <b>Python (discord.py)</b></p>
+
+            <div style="margin-top: 15px;">
+              <div class="game-box" style="border-left-color: #5865F2; font-size: 0.85rem;">
+                <i class="fas fa-bolt"></i> รองรับ YouTube, Spotify, SoundCloud
+              </div>
+              <div class="game-box" style="border-left-color: var(--primary); font-size: 0.85rem;">
+                <i class="fas fa-sliders-h"></i> ระบบ Filter (Bassboost, Nightcore)
+              </div>
+            </div>
+
+        </a>
+
+    </section>
+
+      <section class="card" data-aos="fade-up" data-aos-delay="200">
+        <h2><i class="fas fa-user-shield"></i> Personality</h2>
+        <p>เป็นคนไม่ค่อยหงุดหงิดง่าย มีความใจเย็นสูง</p>
+        <p style="margin-top: 10px; color: var(--secondary); font-size: 0.9rem;">
+          <i class="fas fa-info-circle"></i> เน้นการแก้ปัญหาด้วยเหตุผล และจัดการอารมณ์ได้ดี
+        </p>
+      </section>
+
+      <section class="card" data-aos="fade-up" data-aos-delay="300" style="grid-column: 1 / -1;">
+        <h2><i class="fas fa-gamepad"></i> Gaming Library</h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px;">
+          <div class="game-box">Honor of Kings (HOK)</div>
+          <div class="game-box">Rov</div>
+          <div class="game-box">MLBB</div>
+          <div class="game-box">LOL</div>
+          <div class="game-box">Heartstopia</div>
+          <div class="game-box">Where Minds Meet</div>
+          <div class="game-box">Roblox</div>
+        </div>
+      </section>
+    </div>
+
+    <section class="card" data-aos="fade-up" data-aos-delay="400" style="margin-top: 20px;">
+        <h2><i class="fas fa-address-book"></i> Contact & Social</h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 15px;">
+          <div class="game-box" style="border-left-color: #5865F2; display: flex; align-items: center; gap: 10px;">
+            <i class="fab fa-discord" style="color: #5865F2; font-size: 1.5rem;"></i>
+            <div><div style="font-size: 0.7rem; opacity: 0.7;">Discord</div><strong>p.namnarak</strong></div>
+          </div>
+          <div class="game-box" style="border-left-color: #1877F2; display: flex; align-items: center; gap: 10px;">
+            <i class="fab fa-facebook" style="color: #1877F2; font-size: 1.5rem;"></i>
+            <div><div style="font-size: 0.7rem; opacity: 0.7;">Facebook</div><strong>Nutdanai Phoothong</strong></div>
+          </div>
+          <div class="game-box" style="border-left-color: #00c300; display: flex; align-items: center; gap: 10px;">
+            <i class="fab fa-line" style="color: #00c300; font-size: 1.5rem;"></i>
+            <div><div style="font-size: 0.7rem; opacity: 0.7;">LINE</div><strong>namo11055</strong></div>
+          </div>
+          <div class="game-box" style="border-left-color: #D3D3D3; display: flex; align-items: center; gap: 10px;">
+            <i class="fa fa-phone-square" style="color: #D3D3D3; font-size: 1.5rem;"></i>
+            <div><div style="font-size: 0.7rem; opacity: 0.7;">Phone</div><strong>082-904-7399</strong></div>
+          </div>
+        </div>
+    </section>
+
+    <section class="card" data-aos="fade-up" style="margin-top: 20px;">
+      <h2><i class="fab fa-discord"></i> My Communities</h2>
+      <div class="discord-links">
+        <a href="https://discord.gg/CsF5vuHKZH" target="_blank" class="discord-card cs">
+          <span class="icon">🛒</span>
+          <div><strong>Community & Store《C&S》</strong><p>ร้านค้า & คอมมูนิตี้</p></div>
+        </a>
+        <a href="https://discord.gg/qgN8cbrw5Z" target="_blank" class="discord-card nexus">
+          <span class="icon">🎮</span>
+          <div><strong>Nexus Players Zone</strong><p>กลุ่มรวมเกม Roblox</p></div>
+        </a>
+        <a href="https://discord.gg/S2kzuf5ARx" target="_blank" class="discord-card royal">
+          <span class="icon">💂</span>
+          <div><strong>ROYAL MILITARY STRIKE</strong><p>กองกำลังรบ Roblox</p></div>
+        </a>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <p>© 2025 Nutdanai Phoothong. Portfolio Dashboard</p>
+    </footer>
+  </div>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({ duration: 1000, once: true });
+  </script>
+</body>
+</html>
