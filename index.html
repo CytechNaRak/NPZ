@@ -61,13 +61,9 @@
         }
 
         /* Logic ซ่อน/แสดงภาษา */
-        /* ค่าเริ่มต้น: แสดง TH ซ่อน EN */
         .lang-en { display: none; }
-        
-        /* เมื่อ Body มี class 'en-mode': ซ่อน TH แสดง EN */
         body.en-mode .lang-th { display: none; }
-        body.en-mode .lang-en { display: inline-block; } 
-        /* ใช้ inline-block เพื่อให้จัดหน้าได้สวยงามไม่เพี้ยน */
+        body.en-mode .lang-en { display: inline-block; }
 
         /* --- Sidebar Navigation (Desktop) --- */
         .sidebar {
@@ -193,7 +189,6 @@
             min-height: 60vh;
         }
 
-        /* ป้องกันการลากคลุมดำรูป */
         .avatar-container { 
             position: relative; 
             -webkit-user-select: none;
@@ -279,15 +274,17 @@
         }
         .contact-icon { font-size: 2rem; }
 
-        /* --- MOBILE FIXES --- */
+        /* --- MOBILE FIXES (แก้ปัญหาทั้งหมด) --- */
         @media (max-width: 768px) {
             .sidebar {
                 width: 100%; 
-                height: 70px;
+                height: 70px; /* ความสูงแถบเมนู */
                 bottom: 0; 
                 top: auto;
                 left: 0;
-                flex-direction: row;
+                /* บังคับ Flexbox แนวนอน */
+                display: flex;
+                flex-direction: row; 
                 justify-content: center;
                 align-items: center;
                 padding: 0;
@@ -295,16 +292,19 @@
                 border-right: none;
                 background: rgba(5, 5, 5, 0.95);
                 box-shadow: 0 -5px 20px rgba(0,0,0,0.5);
+                z-index: 9999;
             }
 
             .brand { display: none; }
 
             .nav-links {
-                display: flex;
-                flex-direction: row;
+                /* บังคับแนวนอนและเต็มความกว้าง */
+                display: flex !important;
+                flex-direction: row !important;
                 justify-content: space-around;
                 align-items: center;
                 width: 100%;
+                height: 100%;
                 margin: 0;
                 padding: 0 10px;
             }
@@ -314,22 +314,32 @@
                 flex: 1;
                 display: flex;
                 justify-content: center;
+                align-items: center;
             }
 
             .nav-btn { 
                 padding: 0;
                 width: 50px;
                 height: 50px;
+                display: flex;
                 justify-content: center; 
+                align-items: center;
                 font-size: 1.4rem; 
                 border-radius: 50%;
+                background: transparent;
             }
             
-            .nav-btn span { display: none; }
+            /* --- หัวใจสำคัญ: ซ่อนข้อความทุกกรณีในมือถือ --- */
+            /* ใช้ !important เพื่อชนะ class lang-en/th ที่ display: inline-block */
+            .nav-btn span,
+            .nav-btn .lang-th, 
+            .nav-btn .lang-en { 
+                display: none !important; 
+            }
             
             .main-content { 
                 margin-left: 0; 
-                margin-bottom: 80px;
+                margin-bottom: 80px; 
                 padding: 30px 20px; 
             }
 
@@ -349,7 +359,6 @@
             
             .project-highlight { flex-direction: column; text-align: center; }
 
-            /* ปรับปุ่มเปลี่ยนภาษาในมือถือ */
             .lang-switch {
                 top: 15px;
                 right: 15px;
